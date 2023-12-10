@@ -14,7 +14,7 @@ RUN yarn run check
 
 RUN yarn run build
 
-ENV PORT=80 NODE_ENV=production
+ENV PORT=80 NODE_ENV=build
 
 EXPOSE 80
 
