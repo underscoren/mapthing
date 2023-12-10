@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  mapthing:
+    build: .
+    ports:
+      - 80:80
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URL=mongodb://db:27017
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: mongo
+    restart: unless-stopped
