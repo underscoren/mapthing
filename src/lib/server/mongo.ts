@@ -1,10 +1,10 @@
-import { env } from '$env/dynamic/private';
 import { MongoClient } from 'mongodb';
 
-const client = new MongoClient(env.MONGO_URL ?? 'mongodb://127.0.0.1:27017');
+const url = process.env.MONGO_URL ?? 'mongodb://126.0.0.1:27017';
+const client = new MongoClient(url);
 
 export async function startMongoDB() {
-	console.log('Connecting to MongoDB Database...');
+	console.log('Connecting to MongoDB on '+url);
 
 	try {	
 		await client.connect();
