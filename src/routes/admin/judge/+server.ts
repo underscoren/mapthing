@@ -21,8 +21,10 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
 		text: pendingMarker.textHTML
 	};
 
-	const result1 = await db.collection('messages').insertOne(markerData);
-	if (!result1?.acknowledged || !result1?.insertedId) throw error(500);
+	if(verdict == "approve") {
+		const result1 = await db.collection('messages').insertOne(markerData);
+		if (!result1?.acknowledged || !result1?.insertedId) throw error(500);
+	}
 
 	const result2 = await db.collection('pending').deleteOne({ _id: new ObjectId(id) });
 	if (!result2?.acknowledged || !result2?.deletedCount) throw error(500);
