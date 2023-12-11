@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const url = process.env.MONGO_URL ?? 'mongodb://126.0.0.1:27017';
+const url = process.env.MONGO_URL ?? 'mongodb://127.0.0.1:27017';
 const client = new MongoClient(url);
 
 export async function startMongoDB() {
